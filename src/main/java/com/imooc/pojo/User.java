@@ -1,5 +1,11 @@
 package com.imooc.pojo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -10,9 +16,14 @@ import java.util.Date;
  */
 public class User {
     private String name;
+    @JsonIgnore
     private String password;
     private Integer age;
+    //@DateTimeFormat(pattern = "yyyy-MM-dd") 前台界面传后台格式化
+    //@JsonFormat属于Jackson，用于后台传前端格式化
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss a", locale = "zh", timezone = "GMT-8")
     private Date birthday;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String desc;
 
     public String getName() {
