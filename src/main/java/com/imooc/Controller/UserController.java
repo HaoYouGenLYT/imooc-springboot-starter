@@ -29,6 +29,7 @@ public class UserController {
         u.setPassword("123");
         u.setAge(18);
         u.setBirthday(new Date());
+        u.setDesc("hello java");
         return u;
     }
     @RequestMapping("/getUserJson")
